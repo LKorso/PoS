@@ -25,4 +25,8 @@ public class DrinksMachine {
     private int pay(Coin coin){
         return currentSale.total() - coin.getRating();
     }
+
+    public List<Product> getProducts() {
+        return products;
+    }
 }

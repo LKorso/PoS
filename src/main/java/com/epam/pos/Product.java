@@ -8,7 +8,7 @@ public enum Product {
 
     Product(int price, String description) {
         this.price = price;
-        description = description;
+        this.description = description;
     }
 
     public int getPrice() {
