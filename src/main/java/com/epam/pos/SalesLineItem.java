@@ -1,6 +1,7 @@
 package com.epam.pos;
 
 public class SalesLineItem {
+    private static final int MIN_QUANTITY = 0;
     private int quantity;
     private Product product;
 
@@ -9,11 +10,17 @@ public class SalesLineItem {
         this.product = product;
     }
 
+    public SalesLineItem() {
+    }
+
     public int getQuantity() {
         return quantity;
     }
 
     public void setQuantity(int quantity) {
+        if(MIN_QUANTITY >= quantity){
+            throw new IllegalArgumentException("Quantity can't be less than : " + MIN_QUANTITY);
+        }
         this.quantity = quantity;
     }
 
