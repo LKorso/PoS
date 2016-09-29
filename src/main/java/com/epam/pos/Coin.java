@@ -1,7 +1,7 @@
 package com.epam.pos;
 
-public enum Coin {
-    ONE(1), FIVE(5), TEN(10), TWENTYFIVE(25), FIFTY(50);
+public enum Coin{
+    FIFTY(50),TWENTYFIVE(25), TEN(10), FIVE(5), ONE(1) ;
 
     private int rating;
 
@@ -12,4 +12,5 @@ public enum Coin {
     public int getRating() {
         return rating;
     }
+
 }

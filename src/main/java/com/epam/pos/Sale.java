@@ -14,6 +14,16 @@ public class Sale {
         lineItems.add(new SalesLineItem(quantity, product));
     }
 
+    public List<Product> getProducts(){
+        List<Product> products = new ArrayList();
+        for(SalesLineItem lineItem  : lineItems){
+            for(int i = 1; i <= lineItem.getQuantity(); i++){
+                products.add(lineItem.getProduct());
+            }
+        }
+        return products;
+    }
+
     public int total() {
         int total = 0;
         for(SalesLineItem lineItem : lineItems){
@@ -22,10 +32,11 @@ public class Sale {
         return total;
     }
 
-    public int pay(Coin coin){
-        if (currentBalance == null){
-            currentBalance = new Balance(total());
+    public int changeBlance(Coin coin){
+        if(currentBalance == null){
+            currentBalance = new Balance(-total());
         }
+        currentBalance.increase(coin);
         return currentBalance.getBalance();
     }
 }

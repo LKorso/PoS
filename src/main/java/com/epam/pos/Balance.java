@@ -14,4 +14,8 @@ public class Balance {
     public void setBalance(int balance) {
         this.balance = balance;
     }
+
+    public void increase(Coin coin){
+        balance += coin.getRating();
+    }
 }

@@ -5,6 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SaleTest {
     private Sale sale;
 
@@ -25,5 +28,16 @@ public class SaleTest {
         sale.makeLineItem(null, 3);
     }
 
-
+    @Test
+    public void getProducts() throws Exception {
+        sale.makeLineItem(Product.TEA, 2);
+        sale.makeLineItem(Product.COFFEE, 3);
+        List<Product> testList = new ArrayList();
+        testList.add(Product.TEA);
+        testList.add(Product.TEA);
+        testList.add(Product.COFFEE);
+        testList.add(Product.COFFEE);
+        testList.add(Product.COFFEE);
+        assertEquals(testList, sale.getProducts());
+    }
 }

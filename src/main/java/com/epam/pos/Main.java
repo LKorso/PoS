@@ -10,7 +10,7 @@ public class Main {
     }
 
     private static void showProducts() {
-        for(Product drink : machine.getProducts()){
+        for(Product drink : machine.getProductsList()){
             System.out.println("== " + drink.getDescription() + " price: " + drink.getPrice() + " ==");
         }
     }
