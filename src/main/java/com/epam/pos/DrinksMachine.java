@@ -38,6 +38,14 @@ public class DrinksMachine {
 
     public List<Coin> returnRest(int rest){
         List<Coin> coinsForReturn = new ArrayList();
+        while (rest > 0){
+            for (Coin coin : coins){
+                while(rest >= coin.getRating()){
+                    coinsForReturn.add(coin);
+                    rest -= coin.getRating();
+                }
+            }
+        }
         return coinsForReturn;
     }
 
@@ -48,5 +56,4 @@ public class DrinksMachine {
     private void setCoinsSet() {
         coins = EnumSet.allOf(Coin.class);
     }
-
 }
