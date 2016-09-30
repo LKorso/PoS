@@ -32,7 +32,7 @@ public class Sale {
         return total;
     }
 
-    public int changeBlance(Coin coin){
+    public int changeBalance(Coin coin){
         if(currentBalance == null){
             currentBalance = new Balance(-total());
         }

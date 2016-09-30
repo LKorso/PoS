@@ -5,12 +5,12 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.Set;
 
-public class DrinksMachine {
+public class BeverageMachine {
     private Set<Product> products;
     private Sale currentSale;
     private Set<Coin> coins;
 
-    public DrinksMachine() {
+    public BeverageMachine() {
         currentSale = new Sale();
         setProductsSet();
         setCoinsSet();
@@ -28,12 +28,12 @@ public class DrinksMachine {
         return products;
     }
 
-    public int endSale(){
+    public int returnTotal(){
         return currentSale.total();
     }
 
     public int pay(Coin coin){
-        return  currentSale.changeBlance(coin);
+        return  currentSale.changeBalance(coin);
     }
 
     public List<Coin> returnRest(int rest){
@@ -47,6 +47,14 @@ public class DrinksMachine {
             }
         }
         return coinsForReturn;
+    }
+
+    public void restartSale(){
+        currentSale = new Sale();
+    }
+
+    public Set<Coin> getCoinsSet() {
+        return coins;
     }
 
     private void setProductsSet() {

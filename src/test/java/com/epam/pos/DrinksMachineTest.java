@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DrinksMachineTest {
-    DrinksMachine testItem;
+    BeverageMachine testItem;
 
     @Before
     public void setUp() throws Exception {
-        testItem = new DrinksMachine();
+        testItem = new BeverageMachine();
     }
 
     @Test
