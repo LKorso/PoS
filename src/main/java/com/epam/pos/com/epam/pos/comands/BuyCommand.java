@@ -2,18 +2,18 @@ package com.epam.pos.com.epam.pos.comands;
 
 import com.epam.pos.BeverageMachine;
 import com.epam.pos.Coin;
-import com.epam.pos.com.epam.pos.reader.LineReader;
+
+import java.util.Scanner;
 
 public class BuyCommand extends Command {
     public BuyCommand(BeverageMachine machine) {
         super(machine);
     }
 
-    public boolean doAction(String value) {
+    public void doAction() {
         showAmount();
         showDenomination();
         doPayProcess();
-        return true;
     }
 
     private void showDenomination() {
@@ -38,11 +38,19 @@ public class BuyCommand extends Command {
 
     private void doPayProcess(){
         int rest = - getMachine().returnTotal();
+        Scanner scanner = new Scanner(System.in);
+        Coin givenCoin;
         while(rest < 0){
             System.out.println("Put coin: ");
-            rest = getMachine().pay(chooseCoin(LineReader.readNumber()));
+            givenCoin = chooseCoin(scanner.nextInt());
+            if(givenCoin != null) {
+                rest = getMachine().pay(givenCoin);
+            } else {
+                System.out.println("Terminal doesn't accept coins with this denomination!");
+            }
         }
         System.out.println("Thanks for choosing us!\n Here is your beverages: \n" + getMachine().returnBoughtProducts());
+        System.out.println("Here is your rest: ");
         System.out.println(getMachine().returnRest(rest));
     }
 }

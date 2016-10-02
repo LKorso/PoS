@@ -7,8 +7,8 @@ public class CancelSaleCommand extends Command {
         super(machine);
     }
 
-    public boolean doAction(String value) {
+    public void doAction() {
         getMachine().restartSale();
-        return true;
+        System.out.println("Purchase was canceled!");
     }
 }

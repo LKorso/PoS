@@ -9,7 +9,7 @@ public abstract class Command {
         this.machine = machine;
     }
 
-    public abstract boolean doAction(String value);
+    public abstract void doAction();
 
     protected static BeverageMachine getMachine(){
         return machine;
